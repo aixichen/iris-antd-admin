@@ -25,16 +25,7 @@ import (
  */
 func GetProfile(ctx iris.Context) {
 	userId := ctx.Values().Get("auth_user_id").(uint)
-	s := &models.Search{
-		Fields: []*models.Filed{
-			{
-				Key:       "id",
-				Condition: "=",
-				Value:     userId,
-			},
-		},
-	}
-	user, _ := models.GetUser(s)
+	user, _ := models.GetUserById(userId)
 	ctx.StatusCode(iris.StatusOK)
 	_, _ = ctx.JSON(controller.ApiResource(true, userTransform(user), "200", "", 0, ctx.GetID().(string)))
 }
@@ -53,16 +44,7 @@ func GetProfile(ctx iris.Context) {
  */
 func GetUser(ctx iris.Context) {
 	id, _ := ctx.Params().GetUint("id")
-	s := &models.Search{
-		Fields: []*models.Filed{
-			{
-				Key:       "id",
-				Condition: "=",
-				Value:     id,
-			},
-		},
-	}
-	user, _ := models.GetUser(s)
+	user, _ := models.GetUserById(id)
 
 	ctx.StatusCode(iris.StatusOK)
 	_, _ = ctx.JSON(controller.ApiResource(true, userTransform(user), "200", "操作成功", 0, ctx.GetID().(string)))

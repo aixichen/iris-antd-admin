@@ -29,16 +29,7 @@ func (c *Casbin) ServeHTTP(ctx iris.Context) {
 		ctx.StopExecution()
 		return
 	} else {
-		s := &models.Search{
-			Fields: []*models.Filed{
-				{
-					Key:       "id",
-					Condition: "=",
-					Value:     token.UserId,
-				},
-			},
-		}
-		user, _ := models.GetUser(s)
+		user, _ := models.GetUserById(token.UserId)
 		if len(user.Usermobile) <= 0 {
 			ctx.StatusCode(http.StatusUnauthorized)
 			ctx.StopExecution()

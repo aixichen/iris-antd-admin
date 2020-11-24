@@ -15,7 +15,7 @@ import (
 func App(api *iris.Application) {
 	api.UseRouter(middleware.CrsAuth())
 	api.Get("/", func(ctx iris.Context) {
-		ctx.WriteString("Hi CAR TMS")
+		ctx.WriteString("Hi IRIS ANTD ADMIN")
 	})
 	api.PartyFunc("/api", func(v1 router.Party) {
 		v1.PartyFunc("/access", func(acs router.Party) {
