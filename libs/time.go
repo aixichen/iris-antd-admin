@@ -11,3 +11,7 @@ import "time"
 func TimeFormat(time *time.Time) string {
 	return time.Format("2006-01-02 15:04:05")
 }
+
+func TimeNowToString() string {
+	return time.Now().Format("20060102")
+}

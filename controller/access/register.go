@@ -1,16 +1,16 @@
 package access
 
 import (
-	"car-tms/controller"
-	"car-tms/libs"
-	"car-tms/libs/sms"
-	"car-tms/models"
-	"car-tms/validates"
 	"fmt"
 	"github.com/go-playground/validator/v10"
 	"github.com/kataras/iris/v12"
 	logger "github.com/sirupsen/logrus"
 	"gorm.io/gorm"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/libs/sms"
+	"iris-antd-admin/models"
+	"iris-antd-admin/validates"
 	"time"
 )
 

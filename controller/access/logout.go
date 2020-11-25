@@ -1,10 +1,10 @@
 package access
 
 import (
-	"car-tms/controller"
-	"car-tms/libs"
-	"car-tms/models"
 	"github.com/kataras/iris/v12"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/models"
 	"net/http"
 )
 

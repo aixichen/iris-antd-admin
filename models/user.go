@@ -1,12 +1,12 @@
 package models
 
 import (
-	"car-tms/libs"
 	"fmt"
 	"github.com/fatih/color"
 	"github.com/iris-contrib/middleware/jwt"
 	"github.com/jameskeane/bcrypt"
 	"gorm.io/gorm"
+	"iris-antd-admin/libs"
 	"strconv"
 	"time"
 )

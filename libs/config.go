@@ -9,13 +9,14 @@ import (
 )
 
 var Config = struct {
-	Debug    bool   `default:"false" env:"Debug"`
-	LogLevel string `default:"info" env:"Loglevel"`
-	HTTPS    bool   `default:"false" env:"HTTPS"`
-	Certpath string `default:"" env:"Certpath"`
-	Certkey  string `default:"" env:"Certkey"`
-	Port     int    `default:"8080" env:"PORT"`
-	Host     string `default:"127.0.0.1" env:"Host"`
+	Debug     bool   `default:"false" env:"Debug"`
+	LogLevel  string `default:"info" env:"Loglevel"`
+	HTTPS     bool   `default:"false" env:"HTTPS"`
+	Certpath  string `default:"" env:"Certpath"`
+	Certkey   string `default:"" env:"Certkey"`
+	Port      int    `default:"8080" env:"PORT"`
+	Host      string `default:"127.0.0.1" env:"Host"`
+	UploadDir string `default:"/public/upload" env:"UploadDir"`
 
 	DB struct {
 		Prefix   string `env:"DBPrefix" default:"iris_"`
@@ -24,7 +25,7 @@ var Config = struct {
 		Host     string `env:"DBHost" default:"127.0.0.1"`
 		Port     string `env:"DBPort" default:"3306"`
 		User     string `env:"DBUser" default:"root"`
-		Password string `env:"DBPassword" default:"123456"`
+		Password string `env:"DBPassword" default:"root"`
 	}
 	SMS struct {
 		SecretId  string `env:"SMSSecretId" default:""`

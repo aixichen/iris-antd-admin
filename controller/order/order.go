@@ -1,10 +1,10 @@
 package order
 
 import (
-	"car-tms/controller"
-	"car-tms/validates"
 	"github.com/go-playground/validator/v10"
 	"github.com/kataras/iris/v12"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/validates"
 )
 
 func OrderCreate(ctx iris.Context) {

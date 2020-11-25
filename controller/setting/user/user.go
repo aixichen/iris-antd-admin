@@ -1,14 +1,14 @@
 package user
 
 import (
-	"car-tms/controller"
-	"car-tms/libs"
-	"car-tms/models"
-	"car-tms/transformer"
-	"car-tms/validates"
 	"github.com/go-playground/validator/v10"
 	"github.com/kataras/iris/v12"
 	gf "github.com/snowlyg/gotransformer"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/models"
+	"iris-antd-admin/transformer"
+	"iris-antd-admin/validates"
 	"strconv"
 	"time"
 )

@@ -1,15 +1,15 @@
 package routes
 
 import (
-	"car-tms/controller"
-	"car-tms/controller/access"
-	"car-tms/controller/setting/office"
-	"car-tms/controller/setting/role"
-	"car-tms/controller/setting/user"
-	"car-tms/libs"
-	"car-tms/middleware"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/core/router"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/controller/access"
+	"iris-antd-admin/controller/setting/office"
+	"iris-antd-admin/controller/setting/role"
+	"iris-antd-admin/controller/setting/user"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/middleware"
 )
 
 func App(api *iris.Application) {

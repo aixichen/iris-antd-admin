@@ -1,11 +1,11 @@
 package web_server
 
 import (
-	"car-tms/libs"
-	"car-tms/models"
-	"car-tms/routes"
 	"fmt"
 	"github.com/kataras/iris/v12"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/models"
+	"iris-antd-admin/routes"
 	"strings"
 	"time"
 
@@ -114,7 +114,7 @@ func getPathNames(routeReadOnly []context.RouteReadOnly) []*PathName {
 
 // 过滤非必要权限
 func isPermRoute(name string) bool {
-	exceptRouteName := []string{"OPTIONS", "GET", "POST","DELETE", "HEAD", "PUT", "PATCH", "payload"}
+	exceptRouteName := []string{"OPTIONS", "GET", "POST", "DELETE", "HEAD", "PUT", "PATCH", "payload"}
 	for _, er := range exceptRouteName {
 		if strings.Contains(name, er) {
 			return true

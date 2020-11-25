@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"car-tms/models"
 	"github.com/kataras/iris/v12"
+	"iris-antd-admin/models"
 )
 
 func GetCity(ctx iris.Context) {

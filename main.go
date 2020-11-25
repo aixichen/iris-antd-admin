@@ -1,11 +1,11 @@
 package main
 
 import (
-	"car-tms/libs"
-	"car-tms/seeder"
-	web_server "car-tms/web_service"
 	"fmt"
 	logger "github.com/sirupsen/logrus"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/seeder"
+	web_server "iris-antd-admin/web_service"
 	"os"
 )
 

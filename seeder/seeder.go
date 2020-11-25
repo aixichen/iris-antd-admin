@@ -1,12 +1,12 @@
 package seeder
 
 import (
-	"car-tms/libs"
-	"car-tms/models"
 	"fmt"
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 	logger "github.com/sirupsen/logrus"
 	"gorm.io/gorm"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/models"
 	"strings"
 	"time"
 )

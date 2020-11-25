@@ -1,4 +1,4 @@
-module car-tms
+module iris-antd-admin
 
 go 1.15
 
@@ -9,6 +9,7 @@ require (
 	github.com/go-playground/locales v0.13.0
 	github.com/go-playground/universal-translator v0.17.0
 	github.com/go-playground/validator/v10 v10.4.1
+	github.com/google/uuid v1.1.2
 	github.com/iris-contrib/middleware/cors v0.0.0-20201017024110-39b50ffeb885
 	github.com/iris-contrib/middleware/jwt v0.0.0-20201017024110-39b50ffeb885
 	github.com/jameskeane/bcrypt v0.0.0-20120420032655-c3cd44c1e20f

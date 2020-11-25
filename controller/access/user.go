@@ -1,12 +1,12 @@
 package access
 
 import (
-	"car-tms/controller"
-	"car-tms/libs"
-	"car-tms/models"
-	"car-tms/transformer"
 	"github.com/kataras/iris/v12"
 	gf "github.com/snowlyg/gotransformer"
+	"iris-antd-admin/controller"
+	"iris-antd-admin/libs"
+	"iris-antd-admin/models"
+	"iris-antd-admin/transformer"
 	"strconv"
 	"time"
 )

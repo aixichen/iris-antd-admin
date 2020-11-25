@@ -1,8 +1,8 @@
 package models
 
 import (
-	"car-tms/libs"
 	"gorm.io/gorm"
+	"iris-antd-admin/libs"
 )
 
 type OauthToken struct {
