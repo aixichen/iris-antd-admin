@@ -17,11 +17,15 @@ func App(api *iris.Application) {
 	api.Get("/", func(ctx iris.Context) {
 		ctx.WriteString("Hi IRIS ANTD ADMIN")
 	})
+	api.HandleDir(libs.Config.UploadDir, libs.UploadDir(""))
 	api.PartyFunc("/api", func(v1 router.Party) {
 		v1.PartyFunc("/access", func(acs router.Party) {
 			acs.Post("/login", access.UserLogin).Name = "用户登录"
 			acs.Post("/register", access.RegisterCompany).Name = "公司注册"
 			acs.Post("/register/code", access.RegisterGetCode).Name = "公司注册获取CODE"
+		})
+		v1.PartyFunc("/upload", func(file router.Party) {
+			file.Post("/", controller.FileUpload)
 		})
 		v1.Get("/city", controller.GetCity).Name = "获取地区信息"
 		v1.PartyFunc("/auth", func(auth router.Party) {

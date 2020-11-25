@@ -29,6 +29,12 @@ func LogDir() string {
 	return dir
 }
 
+func UploadDir(perPath string) string {
+	dir := filepath.Join(CWD(), Config.UploadDir, perPath)
+	EnsureDir(dir)
+	return dir
+}
+
 func EnsureDir(dir string) (err error) {
 	if _, err = os.Stat(dir); os.IsNotExist(err) {
 		err = os.MkdirAll(dir, 0755)
