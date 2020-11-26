@@ -16,7 +16,7 @@ func CWD() string {
 	}
 
 	path, err := os.Executable()
-	path = "G:/go/car-tms/"
+	path = "G:/go/iris-antd-admin/"
 	if err != nil {
 		return ""
 	}

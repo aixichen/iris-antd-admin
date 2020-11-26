@@ -18,9 +18,12 @@ func FileUpload(ctx iris.Context) {
 	fname := info.Filename
 	fileExt := path.Ext(fname)
 	fileNewName := uuid.New().String()
-	tempWebPath := libs.Config.UploadDir + "/" + libs.TimeNowToString() + "/" + fileNewName + fileExt
+	tempWebPath := libs.Config.UploadDir + "/" + libs.TimeNowToString()
 	rootFilePath := libs.CWD() + tempWebPath
-	_, err = ctx.SaveFormFile(info, rootFilePath)
+	libs.EnsureDir(rootFilePath)
+	fileWebPathName := tempWebPath + "/" + fileNewName + fileExt
+	rootFileNewPathName := rootFilePath + "/" + fileNewName + fileExt
+	_, err = ctx.SaveFormFile(info, rootFileNewPathName)
 	if err != nil {
 		ctx.StatusCode(iris.StatusInternalServerError)
 		_, _ = ctx.JSON(ApiResource(false, nil, "1001", "文件上传失败", 2, ctx.GetID().(string)))
@@ -29,16 +32,16 @@ func FileUpload(ctx iris.Context) {
 	var WebPath string = ""
 	if libs.Config.HTTPS {
 		if libs.Config.Port == 443 {
-			WebPath = "https://" + libs.Config.Host + tempWebPath
+			WebPath = "https://" + libs.Config.Host + fileWebPathName
 		} else {
-			WebPath = "https://" + libs.Config.Host + ":" + libs.ParseString(libs.Config.Port) + tempWebPath
+			WebPath = "https://" + libs.Config.Host + ":" + libs.ParseString(libs.Config.Port) + fileWebPathName
 		}
 
 	} else {
 		if libs.Config.Port == 80 {
-			WebPath = "http://" + libs.Config.Host + tempWebPath
+			WebPath = "http://" + libs.Config.Host + fileWebPathName
 		} else {
-			WebPath = "http://" + libs.Config.Host + ":" + libs.ParseString(libs.Config.Port) + tempWebPath
+			WebPath = "http://" + libs.Config.Host + ":" + libs.ParseString(libs.Config.Port) + fileWebPathName
 		}
 
 	}
