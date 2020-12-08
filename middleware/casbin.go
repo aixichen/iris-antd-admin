@@ -5,6 +5,7 @@ import (
 	"github.com/casbin/casbin/v2"
 	"github.com/iris-contrib/middleware/jwt"
 	"github.com/kataras/iris/v12"
+	"iris-antd-admin/controller"
 	"iris-antd-admin/models"
 	"net/http"
 	"strconv"
@@ -22,10 +23,12 @@ func (c *Casbin) ServeHTTP(ctx iris.Context) {
 	if token.Revoked || token.ExpressIn < time.Now().Unix() {
 		//_, _ = ctx.Writef("token 失效，请重新登录") // 输出到前端
 		ctx.StatusCode(http.StatusUnauthorized)
+		ctx.JSON(controller.ApiResource(false, nil, "10001", "登录失效，请重新登录", 4, ctx.GetID().(string)))
 		ctx.StopExecution()
 		return
 	} else if !c.Check(ctx.Request(), strconv.FormatUint(uint64(token.UserId), 10)) {
 		ctx.StatusCode(http.StatusForbidden) // Status Forbidden
+		ctx.JSON(controller.ApiResource(false, nil, "10001", "权限验证失败", 4, ctx.GetID().(string)))
 		ctx.StopExecution()
 		return
 	} else {
